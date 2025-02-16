@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+        }
+        .container {
+            /* width: 80%; */
+            margin: 60px;
+        }
+        header {
+            /* display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ff9800;
+            padding: 10px;
+            color: white; */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: black;
+            z-index: 1000;
+            margin-left: 10%;
+            gap: 10px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 60%;
+            border-radius: 5px;
+            border: none;
+        }
+        .recipe-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .recipe-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+        }
+        aside {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background: grey;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+        aside.show {
+            transform: translateX(0);
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            cursor: pointer;
+            background: #ff9800;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+        }
+        .checkout{
+            /* background-color: green;
+            color: white; */
+         
+        width: 100%;
+        padding: 10px;
+        margin-top: 2rem;
+        border: 2px solid #99a98f;
+        background: rgb(9, 189, 9);
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+      
+        }
+         /* ---------------card list------------ */
+         .card-list {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+      .card {
+        width: 250px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 1rem;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        color: black;
+      }
+      .card img {
+        width: 100%;
+      }
+      .card-price {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .card-price .card-price {
+        color: #99a98f;
+        font-weight: 600;
+      }
+      .add-to-cart {
+        background: #99a98f;
+        color: white;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .add-to-cart:hover {
+        color: white;
+        box-shadow: rgb(0 0 0 /30%) 0px 4px 4px,
+          rgb(231, 236, 236) 0px 0px 0px 3px;
+      }
+      .pagination{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        background-color: white;
+        border: 1px solid;
+        justify-content: center;
+    
+      }
+      .pagination li {
+        list-style: none;
+        
+      }
+      .pagination li a{
+        text-decoration: none;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <input type="text" id="search" placeholder="Search recipes...">
+            <button id="voiceSearch">🎤</button>
+            <button id="cartButton">🛒 <span id="cartCount">0</span></button>
+        </header>
+        
+        <div class="recipe-list" id="recipeList">
+            <!-- Recipes will be added dynamically -->
+            <h2 class="section-heading">Recipes Items</h2>
+            <div class="card-list">
+                <div class="card">
+                  <img
+                    src="https://hips.hearstapps.com/hmg-prod/images/roast-chicken-recipe-1-66b231d4757b8.jpg?crop=1xw:1xh;center,top&resize=640:*"
+                    alt=""
+                  />
+                  <h4>Roasted Chicken</h4>
+                  <div class="card-price">
+                    <div class="price">$350</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <img
+                    src="https://hips.hearstapps.com/hmg-prod/images/roast-chicken-recipe-1-66b231d4757b8.jpg?crop=1xw:1xh;center,top&resize=640:*"
+                    alt=""
+                  />
+                  <h4>Mutton Biryani</h4>
+                  <div class="card-price">
+                    <div class="price">$450</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <img
+                    height="250px"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyUtCgWyY1WxdiKPyzvtx86AeLaT7PQbk5oQ&s"
+                    alt=""
+                  />
+                  <h4>Prawns Pulao</h4>
+                  <div class="card-price">
+                    <div class="price">$400</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <img
+                    height="250px"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfaiJTE9H0-34bLHBTA5gjhwH4PvnRYkY4og&s"
+                    alt=""
+                  />
+                  <h4>Natu kodi Biryani</h4>
+                  <div class="card-price">
+                    <div class="price">$500</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <img
+                    height="250px"
+                    src="https://www.kannammacooks.com/wp-content/uploads/masala-fish-fry-recipe-ayala-meen-Mackerel-fry-8.jpg"
+                    alt=""
+                  />
+                  <h4>Fish Fry</h4>
+                  <div class="card-price">
+                    <div class="price">$450</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <img
+                    height="250px"
+                    src="https://www.licious.in/blog/wp-content/uploads/2020/12/Chicken-Kebab.jpg"
+                    alt=""
+                  />
+                  <h4>Chicken Kabab</h4>
+                  <div class="card-price">
+                    <div class="price">$400</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <img
+                    height="250px"
+                    src="https://thebigmansworld.com/wp-content/uploads/2023/09/chicken-lollipop-recipe.jpg"
+                    alt=""
+                  />
+                  <h4>Chicken Lollipop</h4>
+                  <div class="card-price">
+                    <div class="price">$250</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <img
+                    height="250px"
+                    src="https://i.ytimg.com/vi/iKG5DcQW1bI/maxresdefault.jpg"
+                    alt=""
+                  />
+                  <h4>Double ka Meetha</h4>
+                  <div class="card-price">
+                    <div class="price">$100</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+                <div class="card">
+                  <img
+                    height="250px"
+                    src="https://www.keep-calm-and-eat-ice-cream.com/wp-content/uploads/2021/12/Butterscotch-ice-cream-hero-5.jpg"
+                    alt=""
+                  />
+                  <h4>Butterscotch</h4>
+                  <div class="card-price">
+                    <div class="price">$100</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+                <div class="card">
+                    <img
+                      height="250px"
+                      src="https://theartisticcook.com/wp-content/uploads/2024/10/Gulab-Jamun-with-Milk-Powder.jpg"
+                      alt=""
+                    />
+                    <h4>Gulab Jamun</h4>
+                    <div class="card-price">
+                      <div class="price">$100</div>
+                      <i class="fa-solid fa-plus add-to-cart"></i>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img
+                      height="250px"
+                      src="https://foodiesterminal.com/wp-content/uploads/2019/03/chicken-majestic-recipe-6-679x1024.jpg"
+                      alt=""
+                    />
+                    <h4>Chicken Majestic</h4>
+                    <div class="card-price">
+                      <div class="price">$200</div>
+                      <i class="fa-solid fa-plus add-to-cart"></i>
+                    </div>
+                  </div>
+                <div class="card">
+                  <img
+                    height="250px"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7-AfIplNwVP_ZoXD15-Ecrxkg7jdtbHt6_w&s"
+                    alt=""
+                  />
+                  <h4>Apollo Fish</h4>
+                  <div class="card-price">
+                    <div class="price">$550</div>
+                    <i class="fa-solid fa-plus add-to-cart"></i>
+                  </div>
+                </div>
+              </div>
+        </div>
+        </div>
+        
+        <aside id="cartSidebar" class="hidden">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <button id="closeCart">✖</button>
+            </div>
+            <ul id="cartItems"></ul>
+            <p>Total: $<span id="totalAmount">0.00</span></p>
+            <a href="./payment.html"><button id="checkout" class="checkout">Checkout</button></a>
+        </aside>
+    </div>
+    <section>
+      <nav aria-label="Page navigation example" class="nav">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="./index.html">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="./home.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="./trend1.html">2</a></li>
+            <li class="page-item"><a class="page-link" href="./contact.html">3</a></li>
+            <li class="page-item"><a class="page-link" href="./signup.html">4</a></li>
+            <li class="page-item"><a class="page-link" href="./index.html">Next</a></li>
+          </ul>
+        </nav>
+  </section>
+    
+    <script>
+        let cart = [];
+
+        document.getElementById('cartButton').addEventListener('click', function() {
+            document.getElementById('cartSidebar').classList.toggle('show');
+        });
+        document.getElementById('closeCart').addEventListener('click', function() {
+            document.getElementById('cartSidebar').classList.remove('show');
+        });
+
+        document.getElementById('voiceSearch').addEventListener('click', function() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.onstart = function() {
+                console.log("Voice recognition started. Speak now...");
+            };
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('search').value = transcript;
+                console.log("Recognized: ", transcript);
+            };
+            recognition.start();
+        });
+
+//         document.querySelectorAll('.add-to-cart').forEach(button => {
+//     button.addEventListener('click', function() {
+//         const card = this.closest('.card');
+//         const name = card.querySelector('h4').innerText;
+//         const price = parseFloat(card.querySelector('.price').innerText.replace('$', ''));
+
+//         const existingItem = cart.find(item => item.name === name);
+//         if (existingItem) {
+//             existingItem.quantity += 1;
+//         } else {
+//             cart.push({ name, price, quantity: 1 });
+//         }
+//         updateCart();
+//     });
+// });
+document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const card = this.closest('.card');
+            const name = card.querySelector('h4').innerText;
+            const price = parseFloat(card.querySelector('.price').innerText.replace('$', ''));
+            const image = card.querySelector('img').src;
+
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1, image });
+            }
+            updateCart();
+        });
+    });
+    function updateCart() {
+    const cartItemsContainer = document.getElementById('cartItems');
+    const cartCount = document.getElementById('cartCount');
+    const totalAmount = document.getElementById('totalAmount');
+    
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.style.display = 'flex';
+        li.style.alignItems = 'center';
+        li.style.justifyContent = 'space-between';
+        li.style.marginBottom = '10px';
+
+        // Image element
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.style.width = '50px';
+        img.style.height = '50px';
+        img.style.borderRadius = '5px';
+        img.style.marginRight = '10px';
+
+        // Name
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = item.name;
+        nameSpan.style.flex = '1';
+
+        // Decrement button
+        const decrementBtn = document.createElement('button');
+        decrementBtn.textContent = '-';
+        decrementBtn.style.margin = '0 5px';
+        decrementBtn.onclick = function() {
+            if (item.quantity > 1) {
+                item.quantity -= 1;
+            } else {
+                cart = cart.filter(cartItem => cartItem.name !== item.name);
+            }
+            updateCart();
+        };
+
+        // Quantity
+        const quantitySpan = document.createElement('span');
+        quantitySpan.textContent = item.quantity;
+
+        // Increment button
+        const incrementBtn = document.createElement('button');
+        incrementBtn.textContent = '+';
+        incrementBtn.style.margin = '0 5px';
+        incrementBtn.onclick = function() {
+            item.quantity += 1;
+            updateCart();
+        };
+
+        // Price
+        const priceSpan = document.createElement('span');
+        priceSpan.textContent = `$${(item.price * item.quantity).toFixed(2)}`;
+        priceSpan.style.marginLeft = '10px';
+
+        li.appendChild(img);
+        li.appendChild(nameSpan);
+        li.appendChild(decrementBtn);
+        li.appendChild(quantitySpan);
+        li.appendChild(incrementBtn);
+        li.appendChild(priceSpan);
+
+        cartItemsContainer.appendChild(li);
+        total += item.price * item.quantity;
+    });
+    
+    cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    totalAmount.textContent = total.toFixed(2);
+}
+
+        
+        // function updateCart() {
+        //     const cartItemsContainer = document.getElementById('cartItems');
+        //     const cartCount = document.getElementById('cartCount');
+        //     const totalAmount = document.getElementById('totalAmount');
+            
+        //     cartItemsContainer.innerHTML = '';
+        //     let total = 0;
+
+        //     cart.forEach(item => {
+        //         const li = document.createElement('li');
+        //         li.textContent = `${item.name} x${item.quantity} - $${item.price * item.quantity}`;
+        //         cartItemsContainer.appendChild(li);
+        //         total += item.price * item.quantity;
+        //     });
+            
+        //     cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        //     totalAmount.textContent = total.toFixed(2);
+        // }
+        document.getElementById('search').addEventListener('input', function() {
+    let searchQuery = this.value.toLowerCase();
+    let recipeItems = document.querySelectorAll('.card');
+
+    recipeItems.forEach(item => {
+        let itemName = item.querySelector('h4').textContent.toLowerCase();
+        if (itemName.includes(searchQuery)) {
+            item.style.display = "block"; // Show matching item
+        } else {
+            item.style.display = "none"; // Hide non-matching item
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

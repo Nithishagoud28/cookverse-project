@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap"
+    />
+    <link rel="stylesheet" href="./login.css">
+    <script src="./login.js" defer type="module"></script> 
+</head>
+<body>
+  <div class="box">
+      <div class="form">
+        <form action="">
+          <h2>Login Form</h2>
+          <div class="input-field">
+            <input type="text" id="email" required>
+            <label>Enter Your Email</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="password" required>
+            <label >Enter Your password</label>
+
+          </div>
+          <div class="forget">
+            <a href="">Forgot password?</a>
+          </div>
+          <a href="./home.html"><button id="submit" type="submit">Login</button></a>
+          <div class="register">
+            <p>Don't have an account?<a href="./index.html">Register</a></p>
+            <br>
+          </div>
+        </form>
+
+      </div>
+
+  </div>
+    
+      <!-- <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js';
+      
+        // Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCD410-8O0XZhP0FMB50M5NZVIVVXzb9pw",
+          authDomain: "cookverse-js.firebaseapp.com",
+          projectId: "cookverse-js",
+          storageBucket: "cookverse-js.firebasestorage.app",
+          messagingSenderId: "696766616224",
+          appId: "1:696766616224:web:26b8740d3b35cbc641efc5"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+      
+        document.addEventListener("DOMContentLoaded", function () {
+          const submit = document.getElementById("submit");
+      
+          submit.addEventListener("click", function (event) {
+            event.preventDefault();
+      
+            // Get input values
+            const email = document.getElementById("user").value;
+            const password = document.getElementById("pass").value;
+      
+            // Firebase Sign-In
+            signInWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                alert("Logged in Successfully");
+                location.assign("./index.html");
+              })
+              .catch((error) => {
+                console.error("Error Code:", error.code);
+                console.error("Error Message:", error.message);
+                alert("Error: " + error.message);
+              });
+          });
+        });
+      </script> -->
+      
+</body>
+</html>

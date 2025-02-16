@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+   
+</head>
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li onclick=hidesidebar()><a href="#"><svg width="64px" height="64px" viewBox="-24 -24 72.00 72.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="./recipes1.html">Recipes</a></li>
+            <li><a href="./trend1.html">Trending Recipes</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./index.html">Logout</a></li>
+        </ul>
+        <ul>
+            <li class="logo"><a href="#">COOKVERSE</a></li>
+            <li class="hideonmobile"><a href="#">Home</a></li>
+            <li class="hideonmobile"><a href="./recipes1.html">Recipes</a></li>
+            <li class="hideonmobile"><a href="./trend1.html">Trending Recipes</a></li>
+            <li class="hideonmobile"><a href="./contact.html">Contact</a></li>
+            <li class="hideonmobile"><a href="./index.html">Logout</a></li>
+            <li class="hideonmobile"><a href="#" id="user-icon"><i class="fa-solid fa-user"></i></a></li>
+            <li class="menu-button" onclick=showsidebar()><a href=""><svg width="64px" height="64px" viewBox="-23.52 -23.52 71.04 71.04" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></a></li>
+        </ul>
+    </nav>
+    <div id="user-details-sidebar" class="user-sidebar">
+        <a href="#" class="close-icon" onclick="closeUserSidebar()"><i class="fa-solid fa-xmark"></i></a>
+        <h2>User Details</h2>
+        <form id="user-details-form">
+            <label for="profile-pic">Profile Picture</label>
+            <input type="file" id="profile-pic" accept="image/*">
+            
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Username">
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email">
+            
+            <label for="phone-number">Phone Number</label>
+            <input type="text" id="phone-number" placeholder="Phone Number">
+            
+            <label for="blood-group">Blood Group</label>
+            <input type="text" id="blood-group" placeholder="Blood Group">
+            
+            <label for="additional-info">Additional Information</label>
+            <textarea id="additional-info" rows="4" placeholder="Any other information"></textarea>
+            
+            <button type="submit">Save</button>
+        </form>
+    </div>
+    <section class="hero">
+        <div class="hero-section">
+           <h2>Welcome to Cookverse</h2>
+           <!-- <form action="#" class="search-box">
+               <input type="text" placeholder="Search for recipes">
+               <button type="Submit" id="btn">Search</button>
+           </form> -->
+        </div>
+   </section>
+   <section class="recipes">
+        <div class="head">
+            <h1 id="recipes">Recipes</h1>
+        </div>
+        <div class="foods">
+            <div class="foodcard">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/roast-chicken-recipe-1-66b231d4757b8.jpg?crop=1xw:1xh;center,top&resize=640:*" alt="">   
+            </div>
+            <div class="foodcard">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0HlYAi1KOfM6kKz3BUXxQGmSCE9ig7Jtczw&s" alt="">
+                
+            </div>
+            <div class="foodcard">
+                <img src="https://untoldrecipesbynosheen.com/wp-content/uploads/2023/08/mutton-pulao-featured.jpg" alt="">  
+            </div>
+        </div>
+    </section>
+   <!-- -----trending recipes------>
+   <section class="trending">
+    <div id="Trend">
+        <div class="head">
+            <h1 id="trending recipes">Trending Recipes</h1>
+        </div>
+        <div class="trends">
+             <div class="trendfood">
+               <a href=""><img src="https://www.tamingtwins.com/wp-content/uploads/2024/07/tandoor-chicken-10.jpg" alt=""></a>
+             </div>
+             <div class="trendfood">
+                <a href=""><img src="https://www.licious.in/blog/wp-content/uploads/2020/12/Mutton-Seekh-Kebab.jpg" alt=""></a>
+             </div>
+             <div class="trendfood">
+                <a href=""><img src="https://i.ytimg.com/vi/uCyZyYPox84/maxresdefault.jpg" alt=""></a>
+             </div>
+        </div>
+    </div> 
+</section> 
+<!-- ----reviews------------- -->
+<section class="rev">
+    <div>
+        <div class="head">
+            <h1 id="reviews"> Reviews</h1>
+        </div>
+        <div class="reviews">
+            <div class="reviewcard">
+                <img src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg" alt="">
+                <p>"Excellent service! The team was very professional, and the product exceeded my expectations. Highly recommend!"</p>
+            </div>
+            <div class="reviewcard">
+                <img src="https://plus.unsplash.com/premium_photo-1682089897177-4dbc85aa672f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5kaWFuJTIwZ2lybHN8ZW58MHx8MHx8fDA%3D" alt="">
+                <p>"Fantastic experience! The customer support was very helpful, and my order arrived on time. Will buy again!"</p>
+            </div>
+            <div class="reviewcard">
+                <img src="https://www.shutterstock.com/image-photo/middle-age-man-260nw-521428675.jpg" alt="">
+                <p>"Great quality and value for money. I was pleasantly surprised by the attention to detail. Definitely worth it!"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</section>
+<section>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="./index.html">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="./recipes1.html">1</a></li>
+          <li class="page-item"><a class="page-link" href="./trend1.html">2</a></li>
+          <li class="page-item"><a class="page-link" href="./contact.html">3</a></li>
+          <!-- <li class="page-item"><a class="page-link" href="./signup.html">4</a></li> -->
+          <li class="page-item"><a class="page-link" href="./home.html">Next</a></li>
+        </ul>
+      </nav>
+</section>
+    
+    <script>
+        function showsidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display='none'
+        }
+        function hidesidebar(){
+             const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display='none'
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const recipeList = document.getElementById('recipeList');
+
+    searchForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const searchTerm = searchInput.value.toLowerCase();
+        const recipes = recipeList.getElementsByClassName('foodcard');
+        
+        let found = false;
+        Array.from(recipes).forEach(function(recipe) {
+            const recipeName = recipe.getElementsByTagName('img')[0].alt.toLowerCase();
+            if (recipeName.includes(searchTerm)) {
+                recipe.style.display = 'block';
+                found = true;
+            } else {
+                recipe.style.display = 'none';
+            }
+        });
+
+        if (!found) {
+            alert("No matching recipes found.");
+        }
+        
+        Array.from(recipes).forEach(function(recipe) {
+            const recipeName = recipe.getElementsByTagName('img')[0].alt.toLowerCase();
+            if (recipeName.includes(searchTerm)) {
+                recipe.style.display = 'block';
+            } else {
+                recipe.style.display = 'none';
+            }
+        });
+    });   
+});
+document.getElementById('user-icon').addEventListener('click', function() {
+    document.getElementById('user-details-sidebar').classList.add('active');
+});
+
+document.getElementById('user-details-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Logic to save user details goes here
+    
+    // For demonstration purposes, we'll just log the details to the console
+    const profilePic = document.getElementById('profile-pic').files[0];
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const phoneNumber = document.getElementById('phone-number').value;
+    const bloodGroup = document.getElementById('blood-group').value;
+    const additionalInfo = document.getElementById('additional-info').value.trim();
+
+    if(!username || !email || !phoneNumber || !bloodGroup){
+        alert("please fill all required before saving your profile");
+        return;
+    }
+
+    
+    console.log('Profile Picture:', profilePic);
+    console.log('Username:', username);
+    console.log('Email:', email);
+    console.log('Phone Number:', phoneNumber);
+    console.log('Blood Group:', bloodGroup);
+    console.log('Additional Information:', additionalInfo);
+    
+    // Show alert message
+    alert('Your profile has been saved successfully!');
+    
+    // Close the sidebar
+    document.getElementById('user-details-sidebar').classList.remove('active');
+});
+
+function closeUserSidebar() {
+    document.getElementById('user-details-sidebar').classList.remove('active');
+}
+
+// Function to trigger animations on load
+function triggerAnimations() {
+    const foodCards = document.querySelectorAll('.foodcard');
+    const trendFoods = document.querySelectorAll('.trendfood');
+
+    foodCards.forEach(card => {
+        card.style.opacity = '1';
+    });
+
+    trendFoods.forEach(food => {
+        food.style.opacity = '1';
+    });
+}
+
+// Trigger the animations when the page loads
+window.addEventListener('load', triggerAnimations);
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background styling */
+body {
+    background: url('https://www.adselectrics.com/wp-content/uploads/2023/05/Dim-Restaurant-Lighting.webp') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login form container */
+.box {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Form heading */
+h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input field container */
+.input-field {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+/* Input fields */
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Placeholder label styling */
+.input-field label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+/* Move label when typing */
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+    top: -10px;
+    font-size: 12px;
+    color: white;
+}
+
+/* Forgot password link */
+.forget {
+    text-align: left;
+    font-size: 12px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.forget a {
+    color: lightblue;
+    text-decoration: none;
+}
+
+.forget a:hover {
+    text-decoration: underline;
+}
+
+/* Login button */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: green;
+    color: white;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+/* Register text */
+.register {
+    color: white;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register a {
+    color: lightblue;
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}

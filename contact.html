@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        *{
+            font-family: Arial;
+        }
+        body{
+            background-image: url("https://www.adselectrics.com/wp-content/uploads/2023/05/Dim-Restaurant-Lighting.webp");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: transparent;
+        
+        }
+         #overlay{
+            /* width: 100%;
+            height: 100%; */
+            /* position: fixed; */
+            /* background-color: rgba(255, 0,106,0.4); */
+            justify-content: center;
+            
+         }
+         form{
+            max-width: 550px;
+            width: 90%;
+            background: white;
+            margin: 17vh auto 0 auto;
+            padding: 40px;
+            border-radius: 3px;
+            box-sizing: border-box;
+         }
+         h1 {
+            margin: 0;
+            text-align: center;
+         }
+         label{
+            display: block;
+            margin: 20px 0;
+         }
+         input,textarea{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            outline: none;
+            resize: none;
+            border: none;
+            border-bottom: 1px solid #D3D3D3;
+         }
+         input[type="text"]:focus,textarea:focus{
+            border-bottom: 1px solid rgb(255,0,106);
+         }
+         textarea::-webkit-scrollbar{
+            width: 4px;
+         }
+         textarea::-webkit-scrollbar-thumb{
+            background-color: rgb(255,0,106);
+         }
+         .center{
+            text-align: center;
+         }
+         input[type="submit"]{
+            margin-top: 30px;
+            width: 90%;
+            max-width: 200px;
+            background: linear-gradient(to right,rgb(255,0,106),rgb(255,67,61));
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            border-radius: 3px;
+         }
+         .error{
+            color: red;
+         }
+         .error-border{
+            border-bottom: 1px solid red;
+         }
+         #success{
+            color: #28A745;
+         }
+         /* Small screens (up to 600px) */
+@media (max-width: 600px) {
+    form {
+        width: 95%;
+        padding: 30px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    input, textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+    input[type="submit"] {
+        font-size: 15px;
+        width: 100%;
+    }
+}
+
+/* Medium screens (600px to 1024px) */
+@media (min-width: 600px) and (max-width: 1024px) {
+    form {
+        max-width: 500px;
+        padding: 35px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    input, textarea {
+        font-size: 16px;
+        padding: 10px;
+    }
+    input[type="submit"] {
+        font-size: 16px;
+    }
+}
+
+/* Large screens (above 1024px) */
+@media (min-width: 1024px) {
+    form {
+        max-width: 600px;
+        padding: 40px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    input, textarea {
+        font-size: 18px;
+    }
+}
+.pagination{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        background-color: white;
+        border: 1px solid;
+        justify-content: center;
+        
+    
+      }
+      .pagination li {
+        list-style: none;
+        
+        
+      }
+      .pagination li a{
+        text-decoration: none;
+        
+      }
+
+    </style>
+</head>
+<body>
+    <div id="overlay">
+        <form onclick="event.preventDefault(); validateform()">
+         <h1>Contact</h1>
+         <label for="name">Name:</label>
+         <input type="text" id="name" placeholder="Enter Your Name">
+         <small class="error"></small>
+
+    
+         <label for="emal">Email:</label>
+         <input type="text" id="email" placeholder="Enter Your Email">
+         <small class="error"></small>
+
+         
+         <label for="name">Message:</label>
+         <textarea  id="message" placeholder="Your Message" rows="6"></textarea>
+         <small class="error"></small>
+
+         <div class="center">
+            <input type="submit" value="Send Message">
+            <p id="success"></p>
+         </div>
+         
+        </form>
+
+    </div>
+    <section>
+        <nav aria-label="Page navigation example" class="nav">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="./index.html">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="./recipes1.html">1</a></li>
+              <li class="page-item"><a class="page-link" href="./trendingrecipes.html">2</a></li>
+              <li class="page-item"><a class="page-link" href="./contact.html">3</a></li>
+              <!-- <li class="page-item"><a class="page-link" href="./signup.html">4</a></li> -->
+              <li class="page-item"><a class="page-link" href="./home.html">Next</a></li>
+            </ul>
+          </nav>
+    </section>
+    
+    <script>
+        const nameinput = document.querySelector("#name")
+        const email = document.querySelector("#email")
+        const message = document.querySelector("#message")
+        const success = document.querySelector("#success")
+        const errornodes = document.querySelectorAll(".error")
+
+         function validateform(){
+            clearmessage();
+            let errorflag = false
+            if(nameinput.value.length < 1){
+                errornodes[0].innerText = "Name cannot be blank"
+                nameinput.classList.add("error-border")
+                errorflag=true
+            }
+    
+            if(!emailisinvalid(email.value)){
+                errornodes[1].innerText="Invalid Email address";
+                email.classList.add("error-border")
+                errorflag=true
+            }
+            if(message.value.length<1){
+                errornodes[2].innerText="please Enter message";
+                message.classList.add("error-border")
+                errorflag=true
+            }
+            if(!errorflag){
+                success.innerText="Success"
+            }
+         }
+         function clearmessage(){
+            for(let i =0;i<errornodes.length;i++){
+                errornodes[i].innerText=""
+
+            }
+            success.innerText="";
+            nameinput.classList.remove("error-border")
+            email.classList.remove("error-border")
+            message.classList.remove("error-border")
+         }
+         function emailisinvalid(email){
+            let pattern =/\S+@\S+\.\S+/;
+            return pattern.test(email)
+         }
+    </script>
+</body>
+</html>

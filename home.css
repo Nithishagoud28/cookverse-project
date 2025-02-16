@@ -1,0 +1,623 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    /* background-color: black;
+    color: white; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav{
+    background-color: white;
+    /* box-shadow: 3px 3px 5px rgba(0,0,0,0.1); */
+
+}
+.logo{
+    font-size: 25px;
+}
+nav ul{
+    /* width: 100%; */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav li{
+    height: 50px;
+    
+    
+}
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+nav a:hover{
+    color: grey;
+}
+nav li:first-child{
+    margin-right: auto;
+}
+.user-sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.user-sidebar.active {
+    display: block;
+}
+
+.user-sidebar h2 {
+    text-align: center;
+}
+
+.user-sidebar label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.user-sidebar input,
+.user-sidebar textarea {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.user-sidebar button {
+    padding: 10px 15px;
+    background-color: rgba(245,37,9);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.user-sidebar button:hover {
+    background-color: darkred;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: darkred;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-icon:hover {
+    color: #cc0000;
+}
+
+
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(250, 250, 250, 0.522);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.sidebar li{
+    width: 100%;
+
+}
+.sidebar a{
+    width: 100%;
+    
+}
+.menu-button{
+    display: none;
+}
+@media screen and (max-width:800px){
+    .hideonmobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+}
+@media screen and (max-width:400px) {
+    .sidebar{
+        width: 100%;
+        display: flex;
+        
+    }
+}
+/* ----hero section----- */
+.hero{
+    width: 100%;
+    height:500px auto;
+    background: url(https://static.vecteezy.com/system/resources/thumbnails/050/431/139/small_2x/indian-curry-spice-food-in-bowl-rustic-wooden-table-copyspace-for-template-traditional-asian-fried-vegetable-dinner-with-rice-chicken-bread-and-sauce-in-dish-photo.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* color: white; */
+    text-align: center;
+    padding: 100px 0;
+
+}
+.hero h2{
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: white;
+}
+.search-box{
+    max-width: 550px;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.search-box input{
+    width: 70%;
+    padding: 10px;
+    outline: none;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    font-size: 1rem;
+    border: 1px solid rgb(245,37,9);
+}
+.search-box button{
+    padding: 10px 20px;
+    outline: none;
+    border: 0;
+    border-radius:0px 5px 5px 0px;
+    font-size: 1rem;
+    background: rgba(245,37,9);
+    color: white;
+    cursor: pointer;
+
+}
+/* ----media queries----- */
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .hero h2 {
+        font-size: 32px;
+    }
+    .search-box {
+        max-width: 500px;
+    }
+    .search-box input {
+        width: 65%;
+        font-size: 0.9rem;
+    }
+    .search-box button {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
+
+/* Small tablets & large phones (600px - 767px) */
+@media (max-width: 767px) {
+    .hero {
+        padding: 80px 0;
+    }
+    .hero h2 {
+        font-size: 28px;
+    }
+    .search-box {
+        max-width: 450px;
+    }
+    .search-box input {
+        width: 60%;
+        font-size: 0.85rem;
+    }
+    .search-box button {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Mobile phones (480px - 599px) */
+@media (max-width: 599px) {
+    .hero {
+        padding: 60px 0;
+    }
+    .hero h2 {
+        font-size: 24px;
+    }
+    .search-box {
+        max-width: 90%;
+        flex-direction: column;
+    }
+    .search-box input {
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .search-box button {
+        width: 100%;
+        border-radius: 5px;
+        padding: 10px;
+    }
+}
+
+/* Small mobile screens (320px - 479px) */
+@media (max-width: 479px) {
+    .hero {
+        padding: 40px 0;
+    }
+    .hero h2 {
+        font-size: 20px;
+    }
+    .search-box {
+        width: 100%;
+    }
+    .search-box input {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+    .search-box button {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+}
+/* ----recipes----- */
+.recipes{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+.head{
+    padding: 30px;
+    margin-left: 4%;
+}
+.foods{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.foodcard{
+    width: 300px;
+    padding: 11px;
+    background-color: white;
+    margin-inline: 22px;
+    margin-top: 26px;
+    color: black;
+    cursor: pointer;
+}
+.foodcard img{
+    width: 100%;
+
+}
+
+/* ----media queries----- */
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .head {
+        text-align: center;
+        margin-left: 0;
+    }
+    .foods {
+        justify-content: space-around;
+    }
+    .foodcard {
+        width: 270px;
+        margin-inline: 15px;
+        padding: 10px;
+    }
+    
+}
+
+/* Small tablets & large phones (600px - 767px) */
+@media (max-width: 767px) {
+    .head {
+        padding: 20px;
+    }
+    .foods {
+        flex-direction: column;
+        align-items: center;
+    }
+    .foodcard {
+        width: 80%;
+        margin-inline: 0;
+    }
+    
+}
+
+/* Mobile phones (480px - 599px) */
+@media (max-width: 599px) {
+    .head {
+        padding: 15px;
+    }
+    .foodcard {
+        width: 90%;
+        margin-top: 20px;
+    }
+    .foodcard img {
+        height: auto;
+    }
+    
+}
+
+/* Small mobile screens (320px - 479px) */
+@media (max-width: 479px) {
+    .head {
+        font-size: 18px;
+        padding: 10px;
+    }
+    .foodcard {
+        width: 95%;
+        padding: 8px;
+    }
+    
+}
+/* ----trending recipes----- */
+.trending{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+.trends{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.trendfood{
+    width: 300px;
+    padding: 11px;
+    background-color: white;
+    margin-inline: 22px;
+    margin-top: 26px;
+    color: black;
+    cursor: pointer;
+}
+.trendfood img{
+    width: 95%;
+    height: 200px;
+    /* height: 100%; */
+    margin-inline: 12px;
+}
+/* ----media queries--- */
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .trends {
+        justify-content: space-around;
+    }
+    .trendfood {
+        width: 270px;
+        margin-inline: 15px;
+        padding: 10px;
+    }
+    .trendfood img {
+        width: 100%;
+        height: 180px;
+        margin-inline: 0;
+    }
+}
+
+/* Small tablets & large phones (600px - 767px) */
+@media (max-width: 767px) {
+    .trends {
+        flex-direction: column;
+        align-items: center;
+    }
+    .trendfood {
+        width: 80%;
+        margin-inline: 0;
+    }
+    .trendfood img {
+        width: 100%;
+        height: 160px;
+    }
+}
+
+/* Mobile phones (480px - 599px) */
+@media (max-width: 599px) {
+    .trendfood {
+        width: 90%;
+        padding: 8px;
+    }
+    .trendfood img {
+        height: 150px;
+    }
+}
+
+/* Small mobile screens (320px - 479px) */
+@media (max-width: 479px) {
+    .trendfood {
+        width: 95%;
+        padding: 6px;
+    }
+    .trendfood img {
+        height: 130px;
+    }
+}
+/* ----reviews------------ */
+.rev{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+.reviews{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+.reviewcard{
+    width: 300px;
+    padding: 22px;
+    background-color: white;
+    text-align: center;
+    margin-inline: 22px;
+    color: black;
+    border-radius: 11px;
+}
+.reviewcard img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+/* ----media queries----- */
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .reviews {
+        justify-content: space-around;
+    }
+    .reviewcard {
+        width: 270px;
+        padding: 18px;
+        margin-inline: 15px;
+    }
+    .reviewcard img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Small tablets & large phones (600px - 767px) */
+@media (max-width: 767px) {
+    .reviews {
+        flex-direction: column;
+        align-items: center;
+    }
+    .reviewcard {
+        width: 80%;
+        padding: 16px;
+        margin-top: 15px;
+    }
+    .reviewcard img {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+/* Mobile phones (480px - 599px) */
+@media (max-width: 599px) {
+    .reviewcard {
+        width: 90%;
+        padding: 14px;
+    }
+    .reviewcard img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Small mobile screens (320px - 479px) */
+@media (max-width: 479px) {
+    .reviewcard {
+        width: 95%;
+        padding: 12px;
+    }
+    .reviewcard img {
+        width: 55px;
+        height: 55px;
+    }
+}
+/* ----animations--------- */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-360deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+/* Slide in left animation */
+.foodcard:nth-child(1) {
+    animation: slideInLeft 0.6s ease-in-out both;
+    opacity: 0;
+    animation-delay: 0.2s;
+}
+
+/* Slide in right animation */
+.foodcard:nth-child(2) {
+    animation: slideInRight 0.6s ease-in-out both;
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
+/* Zoom in animation */
+.foodcard:nth-child(3) {
+    animation: zoomIn 0.6s ease-in-out both;
+    opacity: 0;
+    animation-delay: 0.6s;
+}
+
+/* Rotate in animation for trending recipes */
+.trendfood:nth-child(1) {
+    animation: rotateIn 0.6s ease-in-out both;
+    opacity: 0;
+    animation-delay: 0.2s;
+}
+
+.trendfood:nth-child(2) {
+    animation: slideInLeft 0.6s ease-in-out both;
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
+.trendfood:nth-child(3) {
+    animation: slideInRight 0.6s ease-in-out both;
+    opacity: 0;
+    animation-delay: 0.6s;
+}
